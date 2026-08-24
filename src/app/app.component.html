@@ -1,0 +1,81 @@
+<header class="site-header">
+  <a class="brand" href="#inicio" aria-label="Auto Repuestos El Samán, inicio">
+    <img src="assets/logo-el-saman.png" alt="Auto Repuestos El Samán C.A." />
+  </a>
+  <button class="menu-button" type="button" (click)="menuOpen = !menuOpen" [attr.aria-expanded]="menuOpen" aria-label="Abrir menú">☰</button>
+  <nav [class.open]="menuOpen" aria-label="Navegación principal">
+    <a href="#inicio" (click)="menuOpen = false">Inicio</a>
+    <a href="#repuestos" (click)="menuOpen = false">Repuestos</a>
+    <a href="#nosotros" (click)="menuOpen = false">Nosotros</a>
+    <a class="nav-cta" href="#contacto" (click)="menuOpen = false">Contáctanos</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span> Calidad que mueve tu camino</p>
+      <h1>El repuesto correcto.<br /><em>A la primera.</em></h1>
+      <p class="hero-text">Encuentra las piezas que tu vehículo necesita con atención cercana, asesoría confiable y la calidad que te acompaña en cada kilómetro.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#contacto">Consultar un repuesto <span>→</span></a>
+        <a class="button secondary" href="#repuestos">Ver categorías</a>
+      </div>
+      <div class="trust-row" aria-label="Beneficios">
+        <span>✓ Atención personalizada</span>
+        <span>✓ Repuestos de calidad</span>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="Repuestos automotrices de calidad">
+      <div class="sun-disc"></div>
+      <div class="car-card">
+        <div class="car-silhouette"><span class="car-window"></span><i></i><b></b></div>
+        <div class="road"></div>
+      </div>
+      <div class="floating-card">
+        <span class="check">✓</span>
+        <div><small>COMPROMISO</small><strong>Siempre contigo</strong></div>
+      </div>
+      <div class="dot-grid"></div>
+    </div>
+  </section>
+
+  <section class="categories section" id="repuestos">
+    <div class="section-heading">
+      <div><p class="eyebrow"><span></span> Lo que buscas, lo tenemos</p><h2>Repuestos para seguir<br /><em>avanzando.</em></h2></div>
+      <p>Seleccionamos piezas confiables para los sistemas más importantes de tu vehículo. Consúltanos y te ayudaremos a identificar la opción adecuada.</p>
+    </div>
+    <div class="category-grid">
+      <button class="category-card" type="button" (click)="selectCategory('Motor y lubricación')"><span class="part-icon">⚙</span><span class="number">01</span><h3>Motor y lubricación</h3><p>Filtros, correas, bujías, aceites y componentes esenciales.</p><b>Consultar <i>→</i></b></button>
+      <button class="category-card featured" type="button" (click)="selectCategory('Frenos')"><span class="part-icon">◉</span><span class="number">02</span><h3>Sistema de frenos</h3><p>Pastillas, bandas, discos y piezas para una frenada segura.</p><b>Consultar <i>→</i></b></button>
+      <button class="category-card" type="button" (click)="selectCategory('Suspensión y dirección')"><span class="part-icon">↕</span><span class="number">03</span><h3>Suspensión y dirección</h3><p>Amortiguadores, terminales y componentes de estabilidad.</p><b>Consultar <i>→</i></b></button>
+      <button class="category-card" type="button" (click)="selectCategory('Sistema eléctrico')"><span class="part-icon">ϟ</span><span class="number">04</span><h3>Sistema eléctrico</h3><p>Bombillos, sensores, baterías y soluciones eléctricas.</p><b>Consultar <i>→</i></b></button>
+    </div>
+  </section>
+
+  <section class="about" id="nosotros">
+    <div class="about-art" aria-hidden="true"><span class="big-gear">⚙</span><div class="yellow-block"></div><div class="teal-block"></div></div>
+    <div class="about-copy">
+      <p class="eyebrow light"><span></span> Una atención que marca la diferencia</p><h2>Más que repuestos,<br /><em>confianza.</em></h2>
+      <p>En Auto Repuestos El Samán creemos que elegir una pieza no tiene por qué ser complicado. Escuchamos lo que necesitas y te orientamos con honestidad para que tomes una buena decisión.</p>
+      <div class="benefits">
+        <article><strong>01</strong><div><h3>Asesoría cercana</h3><p>Te ayudamos a identificar la pieza adecuada para tu vehículo.</p></div></article>
+        <article><strong>02</strong><div><h3>Calidad primero</h3><p>Trabajamos pensando en el buen desempeño y la seguridad.</p></div></article>
+        <article><strong>03</strong><div><h3>Respuesta oportuna</h3><p>Consultas claras para que vuelvas al camino cuanto antes.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact section" id="contacto">
+    <div class="contact-copy"><p class="eyebrow"><span></span> Estamos para ayudarte</p><h2>¿Qué repuesto<br /><em>necesitas?</em></h2><p>Cuéntanos la marca, el modelo, el año y la pieza que buscas. Con esos datos podremos orientarte mejor.</p><div class="contact-note"><span>✓</span><div><strong>Tip para una respuesta más rápida</strong><p>Ten a mano una foto de la pieza o el número de parte, si lo conoces.</p></div></div></div>
+    <form class="quote-card" action="https://wa.me/" method="get" target="_blank">
+      <div class="quote-title"><span>✦</span><div><small>SOLICITUD DE REPUESTO</small><h3>Prepara tu consulta</h3></div></div>
+      <label>Nombre<input name="nombre" type="text" placeholder="Tu nombre" required /></label>
+      <div class="field-row"><label>Marca<input name="marca" type="text" placeholder="Ej. Toyota" required /></label><label>Modelo y año<input name="modelo" type="text" placeholder="Ej. Corolla 2012" required /></label></div>
+      <label>Repuesto<textarea name="text" rows="4" [value]="selectedCategory" placeholder="Describe la pieza que necesitas" required></textarea></label>
+      <button class="button primary submit" type="submit">Compartir por WhatsApp <span>→</span></button><small class="privacy">Al continuar podrás elegir con quién compartir tu consulta.</small>
+    </form>
+  </section>
+</main>
+
+<footer><img src="assets/logo-el-saman.png" alt="Auto Repuestos El Samán C.A." /><p>Calidad y atención para mantenerte en movimiento.</p><a href="#inicio">Volver arriba ↑</a></footer>
