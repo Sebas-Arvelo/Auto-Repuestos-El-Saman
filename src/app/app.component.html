@@ -1,13 +1,14 @@
 <header class="site-header">
-  <a class="brand" href="#inicio" aria-label="Auto Repuestos El Samán, inicio">
+  <a class="brand" href="#inicio" (click)="navigateTo('inicio', $event)" aria-label="Auto Repuestos El Samán, inicio">
     <img src="assets/logo-el-saman.png" alt="Auto Repuestos El Samán C.A." />
   </a>
   <button class="menu-button" type="button" (click)="menuOpen = !menuOpen" [attr.aria-expanded]="menuOpen" aria-label="Abrir menú">☰</button>
   <nav [class.open]="menuOpen" aria-label="Navegación principal">
-    <a href="#inicio" (click)="menuOpen = false">Inicio</a>
-    <a href="#repuestos" (click)="menuOpen = false">Repuestos</a>
-    <a href="#nosotros" (click)="menuOpen = false">Nosotros</a>
-    <a class="nav-cta" href="#contacto" (click)="menuOpen = false">Contáctanos</a>
+    <a href="#inicio" (click)="navigateTo('inicio', $event)">Inicio</a>
+    <a href="#repuestos" (click)="navigateTo('repuestos', $event)">Repuestos</a>
+    <a href="#nosotros" (click)="navigateTo('nosotros', $event)">Nosotros</a>
+    <a href="#ubicacion" (click)="navigateTo('ubicacion', $event)">Ubicación</a>
+    <a class="nav-cta" href="#contacto" (click)="navigateTo('contacto', $event)">Contáctanos</a>
   </nav>
 </header>
 
@@ -66,14 +67,56 @@
     </div>
   </section>
 
+  <section class="visit section" id="ubicacion">
+    <div class="visit-heading">
+      <p class="eyebrow light"><span></span> Ven a visitarnos</p>
+      <h2>Estamos en<br /><em>El Llanito.</em></h2>
+      <p>Encuéntranos fácilmente en Caracas o visita nuestros canales digitales para conocer más de Auto Repuestos El Samán.</p>
+    </div>
+
+    <div class="visit-grid">
+      <article class="location-card">
+        <div class="location-marker" aria-hidden="true">⌖</div>
+        <div class="location-copy">
+          <small>DIRECCIÓN</small>
+          <h3>Avenida Tamanaco, Edificio Castelmonte</h3>
+          <p>El Llanito, Caracas.</p>
+          <div class="reference">
+            <strong>Punto de referencia</strong>
+            <p>A 50 metros subiendo desde la estación de servicio, debajo del Supermercado Acuario.</p>
+          </div>
+          <a class="visit-link map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Tamanaco%2C%20Edificio%20Castelmonte%2C%20El%20Llanito%2C%20Caracas" target="_blank" rel="noopener noreferrer">
+            Abrir en Google Maps <span>↗</span>
+          </a>
+        </div>
+      </article>
+
+      <div class="online-card">
+        <div class="online-heading">
+          <small>TAMBIÉN EN LÍNEA</small>
+          <h3>Síguenos y descubre nuestros productos</h3>
+        </div>
+        <a class="social-link instagram" href="https://www.instagram.com/autorepuestoselsaman/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de Auto Repuestos El Samán">
+          <span class="social-monogram">IG</span>
+          <span><small>INSTAGRAM</small><strong>&#64;autorepuestoselsaman</strong></span>
+          <b>↗</b>
+        </a>
+        <a class="social-link mercado-libre" href="https://listado.mercadolibre.com.ve/_CustId_2343309833?item_id=MLV1024608960&amp;category_id=MLV445918&amp;seller_id=2343309833&amp;client=recoview-selleritems&amp;recos_listing=true#origin=vip&amp;component=sellerData&amp;typeSeller=classic" target="_blank" rel="noopener noreferrer" aria-label="Ver productos de Auto Repuestos El Samán en MercadoLibre">
+          <span class="social-monogram">ML</span>
+          <span><small>MERCADOLIBRE</small><strong>Ver nuestros productos</strong></span>
+          <b>↗</b>
+        </a>
+      </div>
+    </div>
+  </section>
   <section class="contact section" id="contacto">
     <div class="contact-copy"><p class="eyebrow"><span></span> Estamos para ayudarte</p><h2>¿Qué repuesto<br /><em>necesitas?</em></h2><p>Cuéntanos la marca, el modelo, el año y la pieza que buscas. Con esos datos podremos orientarte mejor.</p><div class="contact-note"><span>✓</span><div><strong>Tip para una respuesta más rápida</strong><p>Ten a mano una foto de la pieza o el número de parte, si lo conoces.</p></div></div></div>
-    <form class="quote-card" action="https://wa.me/" method="get" target="_blank">
+    <form class="quote-card" (submit)="sendToWhatsApp($event)">
       <div class="quote-title"><span>✦</span><div><small>SOLICITUD DE REPUESTO</small><h3>Prepara tu consulta</h3></div></div>
       <label>Nombre<input name="nombre" type="text" placeholder="Tu nombre" required /></label>
       <div class="field-row"><label>Marca<input name="marca" type="text" placeholder="Ej. Toyota" required /></label><label>Modelo y año<input name="modelo" type="text" placeholder="Ej. Corolla 2012" required /></label></div>
       <label>Repuesto<textarea name="text" rows="4" [value]="selectedCategory" placeholder="Describe la pieza que necesitas" required></textarea></label>
-      <button class="button primary submit" type="submit">Compartir por WhatsApp <span>→</span></button><small class="privacy">Al continuar podrás elegir con quién compartir tu consulta.</small>
+      <button class="button primary submit" type="submit">Compartir por WhatsApp <span>→</span></button><small class="privacy">La consulta se abrirá directamente en el WhatsApp del negocio.</small>
     </form>
   </section>
 </main>
